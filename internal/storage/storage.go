@@ -1,13 +1,20 @@
 package storage
 
-type Auth interface {
-	CreateUser(user mode.User) (int, error)
+import (
+	"github.com/mmikhail2001/goserver/model"
+)
+
+type Storage interface {
+	CreateUser(user model.User) (int, error)
 }
 
 type storage struct {
-	Auth
 }
 
-func NewRepository() *storage {
+func (s *storage) CreateUser(user model.User) (int, error) {
+	return 0, nil
+}
+
+func NewStorage() Storage {
 	return &storage{}
 }
